@@ -59,10 +59,10 @@ controls <- select(data,
 # "Q61", #pid
 # "Q65", #income
 controls$Q1 <- factor(controls$Q1, levels = c(1, 2, 3), labels = c("Male", "Female", "Something else"))
-controls$Q57 <- cut(controls$Q57, 
-                         breaks = c(0, 18, 35, 50, 65, Inf), 
-                         labels = c("Under 18", "18-34", "35-49", "50-64", "65 and over"), 
-                         include.lowest = TRUE)
+# controls$Q57 <- cut(controls$Q57, 
+#                          breaks = c(0, 18, 35, 50, 65, Inf), 
+#                          labels = c("Under 18", "18-34", "35-49", "50-64", "65 and over"), 
+#                          include.lowest = TRUE)
 controls$Q59 <- factor(controls$Q59, levels = c(1, 2, 3, 4, 5, 6, 7, 8), labels = c("White", "Black", "Asian", "AIAN", "MENA", "NHPI", "Other", "NA"))
 controls$Q60 <- factor(controls$Q60, levels = c(1, 2, 3), labels = c("HL", "!HL", "NA"))
 controls$Q61 <- factor(controls$Q61, levels = c(1, 2, 3, 4, 5), labels = c("D", "R", "I", "O", "NS"))
@@ -123,6 +123,42 @@ analyse_data <- function(df) {
   i<<-i+1
 }
 
+analyse_data_mycontrols <- function(df, time, know) {
+  # Fit a one-way ANOVA
+  one.way <- aov(outcome ~ true_labeled * false_labeled + time + know, data = df)
+  print(summary(one.way))
+  
+  # Fit a logistic regression model
+  fit <- glm(outcome ~ true_labeled * false_labeled + time + know, family = binomial(link = "logit"), data = df)
+  print(summary(fit))
+  
+  # Aggregate data
+  data_agg <- aggregate(outcome ~ true_labeled + false_labeled, df, mean)
+  
+  # Create and display the first plot
+  p1 <- ggplot(data_agg, aes(x = true_labeled, y = outcome, color = false_labeled, group = false_labeled)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 3) +
+    labs(x = "Fake News Labeled", y = "Pr(Fake News Selected)", color = "True News") +
+    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
+    theme_classic() +
+    theme(legend.position = "top")
+  
+  ggsave(paste0("plot_", i, ".png"), p1)
+  i<<-i+1
+  
+  # Create and display the second plot
+  p2 <- ggplot(data_agg, aes(x = false_labeled, y = outcome, color = true_labeled, group = true_labeled)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 3) +
+    labs(x = "True News Labeled", y = "Pr(Fake News Selected)", color = "Fake News") +
+    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
+    theme_classic() +
+    theme(legend.position = "top")
+  ggsave(paste0("plot_", i, ".png"), p2)
+  i<<-i+1
+}
+
 analyse_data_with_controls_basic <- function(df, controls) {
   # Fit a one-way ANOVA
   one.way <- aov(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65, data = df)
@@ -161,13 +197,13 @@ analyse_data_with_controls_basic <- function(df, controls) {
   i<<-i+1
 }
 
-analyse_data_with_controls_knowledge <- function(df, controls, know) {
+analyse_data_with_allcontrols <- function(df, controls, time, know) {
   # Fit a one-way ANOVA
-  one.way <- aov(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + know, data = df)
+  one.way <- aov(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + time + know, data = df)
   print(summary(one.way))
   
   # Fit a logistic regression model
-  fit <- glm(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + know, family = binomial(link = "logit"), data = df)
+  fit <- glm(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + time + know, family = binomial(link = "logit"), data = df)
   print(summary(fit))
   
   df$predicted <- predict(fit, type = "response")
@@ -199,43 +235,6 @@ analyse_data_with_controls_knowledge <- function(df, controls, know) {
   i<<-i+1
 }
 
-analyse_data_with_controls_time <- function(df, controls, time) {
-  # Fit a one-way ANOVA
-  one.way <- aov(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + time, data = df)
-  print(summary(one.way))
-  
-  # Fit a logistic regression model
-  fit <- glm(outcome ~ true_labeled * false_labeled + controls$Q1 + controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + controls$Q65 + time, family = binomial(link = "logit"), data = df)
-  print(summary(fit))
-  
-  df$predicted <- predict(fit, type = "response")
-  data_pred <- aggregate(predicted ~ true_labeled + false_labeled, df, mean)
-  data_agg <- aggregate(outcome ~ true_labeled + false_labeled, df, mean)
-  
-  # Create and display the first plot
-  p1 <- ggplot(data_agg, aes(x = true_labeled, y = outcome, color = false_labeled, group = false_labeled)) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 3) +
-    geom_line(data = data_pred, aes(y = predicted), linetype = "dashed") +
-    labs(x = "Fake News Labeled", y = "Pr(Fake News Selected)", color = "True News") +
-    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
-    theme_classic() +
-    theme(legend.position = "top")
-  ggsave(paste0("plot_", i, ".png"), p1)
-  i<<-i+1
-  
-  # Create and display the second plot
-  p2 <- ggplot(data_agg, aes(x = false_labeled, y = outcome, color = true_labeled, group = true_labeled)) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 3) +
-    geom_line(data = data_pred, aes(y = predicted), linetype = "dashed") +
-    labs(x = "True News Labeled", y = "Pr(Fake News Selected)", color = "Fake News") +
-    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
-    theme_classic() +
-    theme(legend.position = "top")
-  ggsave(paste0("plot_", i, ".png"), p2)
-  i<<-i+1
-}
 
 # raw analysis
 data_R <- data.frame(treatment = covid_questions$dQ47,
@@ -258,24 +257,44 @@ data_L$false_labeled <- as.factor(data_L$false_labeled)
 data_L$outcome <- as.numeric(as.character(data_L$outcome)) # Outcome should be numeric
 strength <- rbind(data_R, data_L)
 
+print("analyse_data(data_R)")
 analyse_data(data_R)
+
+print("analyse_data(data_L)")
 analyse_data(data_L)
+
+print("analyse_data(strength)")
 analyse_data(strength)
 
+print("analyse_data_mycontrols(data_R, controls$Interest47, controls$Q45)")
+analyse_data_mycontrols(data_R, controls$Interest47, controls$Q45)
+
+print("analyse_data_mycontrols(data_L, controls$Interest48, controls$Q46)")
+analyse_data_mycontrols(data_L, controls$Interest48, controls$Q46)
+
+print("analyse_data_mycontrols(strength,  c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))")
+analyse_data_mycontrols(strength,  c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))
+
+print("analyse_data_with_controls_basic(data_R, controls)")
 analyse_data_with_controls_basic(data_R, controls)
+
+print("analyse_data_with_controls_basic(data_L, controls)")
 analyse_data_with_controls_basic(data_L, controls)
+
 strength_controls <- rbind(controls, controls)
+
+print("analyse_data_with_controls_basic(strength, strength_controls)")
 analyse_data_with_controls_basic(strength, strength_controls)
 
-analyse_data_with_controls_knowledge(data_R, controls, controls$Q45)
-analyse_data_with_controls_knowledge(data_L, controls, controls$Q46)
-strength_controls <- rbind(controls, controls)
-analyse_data_with_controls_knowledge(strength, strength_controls, c(controls$Q45, controls$Q46))
+print("analyse_data_with_allcontrols(data_R, controls, controls$Interest47, controls$Q45)")
+analyse_data_with_allcontrols(data_R, controls, controls$Interest47, controls$Q45)
 
-analyse_data_with_controls_time(data_R, controls, controls$Interest47)
-analyse_data_with_controls_time(data_L, controls, controls$Interest48)
-strength_controls <- rbind(controls, controls)
-analyse_data_with_controls_time(strength, strength_controls, c(controls$Interest47, controls$Interest48))
+print("analyse_data_with_allcontrols(data_L, controls, controls$Interest48, controls$Q46)")
+analyse_data_with_allcontrols(data_L, controls, controls$Interest48, controls$Q46)
+
+print("analyse_data_with_allcontrols(strength, strength_controls, c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))")
+analyse_data_with_allcontrols(strength, strength_controls, c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))
+
 
 sink()
 

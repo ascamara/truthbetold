@@ -108,6 +108,7 @@ analyse_data <- function(df) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -119,6 +120,51 @@ analyse_data <- function(df) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
+  i<<-i+1
+}
+
+
+analyse_data_mycontrols <- function(df, time, know, exclude_control = NULL) {
+  
+  formula <- as.formula(paste("outcome ~ true_labeled * false_labeled +",
+                              if (!"time" %in% exclude_control) "time",
+                              if (!"know" %in% exclude_control) "+ know"))
+  
+  # Fit a one-way ANOVA
+  one.way <- aov(formula, data = df)
+  print(summary(one.way))
+  
+  # Fit a logistic regression model
+  fit <- glm(formula, family = binomial(link = "logit"), data = df)
+  print(summary(fit))
+  
+  # Aggregate data
+  data_agg <- aggregate(outcome ~ true_labeled + false_labeled, df, mean)
+  
+  # Create and display the first plot
+  p1 <- ggplot(data_agg, aes(x = true_labeled, y = outcome, color = false_labeled, group = false_labeled)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 3) +
+    labs(x = "Fake News Labeled", y = "Pr(Fake News Selected)", color = "True News") +
+    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
+    theme_classic() +
+    theme(legend.position = "top")
+  
+  ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
+  i<<-i+1
+  
+  # Create and display the second plot
+  p2 <- ggplot(data_agg, aes(x = false_labeled, y = outcome, color = true_labeled, group = true_labeled)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 3) +
+    labs(x = "True News Labeled", y = "Pr(Fake News Selected)", color = "Fake News") +
+    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
+    theme_classic() +
+    theme(legend.position = "top")
+  ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
@@ -153,6 +199,7 @@ analyse_data_with_controls_basic <- function(df, controls, exclude_control = NUL
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -165,10 +212,11 @@ analyse_data_with_controls_basic <- function(df, controls, exclude_control = NUL
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
-analyse_data_with_controls_knowledge <- function(df, controls, know, exclude_control = NULL) {
+analyse_data_with_allcontrols <- function(df, controls, time, know, exclude_control = NULL) {
   
   formula <- as.formula(paste("outcome ~ true_labeled * false_labeled +",
                               if (!"Q1" %in% exclude_control) "controls$Q1",
@@ -177,6 +225,7 @@ analyse_data_with_controls_knowledge <- function(df, controls, know, exclude_con
                               if (!"Q60" %in% exclude_control) "+ controls$Q60",
                               if (!"Q61" %in% exclude_control) "+ controls$Q61",
                               if (!"Q65" %in% exclude_control) "+ controls$Q65",
+                              if (!"time" %in% exclude_control) "+ time",
                               if (!"know" %in% exclude_control) "+ know"),
                               )
   
@@ -202,6 +251,7 @@ analyse_data_with_controls_knowledge <- function(df, controls, know, exclude_con
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -214,56 +264,10 @@ analyse_data_with_controls_knowledge <- function(df, controls, know, exclude_con
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
-analyse_data_with_controls_time <- function(df, controls, time, exclude_control = NULL) {
-  formula <- as.formula(paste("outcome ~ true_labeled * false_labeled +",
-                              if (!"Q1" %in% exclude_control) "controls$Q1",
-                              if (!"Q57" %in% exclude_control) "+ controls$Q57",
-                              if (!"Q59" %in% exclude_control) "+ controls$Q59",
-                              if (!"Q60" %in% exclude_control) "+ controls$Q60",
-                              if (!"Q61" %in% exclude_control) "+ controls$Q61",
-                              if (!"Q65" %in% exclude_control) "+ controls$Q65",
-                              if (!"time" %in% exclude_control) "+ time"),
-  )
-  
-  # Fit a one-way ANOVA
-  one.way <- aov(formula, data = df)
-  print(summary(one.way))
-  
-  # Fit a logistic regression model
-  fit <- glm(formula, family = binomial(link = "logit"), data = df)
-  print(summary(fit))
-  
-  df$predicted <- predict(fit, type = "response")
-  data_pred <- aggregate(predicted ~ true_labeled + false_labeled, df, mean)
-  data_agg <- aggregate(outcome ~ true_labeled + false_labeled, df, mean)
-  
-  # Create and display the first plot
-  p1 <- ggplot(data_agg, aes(x = true_labeled, y = outcome, color = false_labeled, group = false_labeled)) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 3) +
-    geom_line(data = data_pred, aes(y = predicted), linetype = "dashed") +
-    labs(x = "Fake News Labeled", y = "Pr(Fake News Selected)", color = "True News") +
-    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
-    theme_classic() +
-    theme(legend.position = "top")
-  ggsave(paste0("plot_", i, ".png"), p1)
-  i<<-i+1
-  
-  # Create and display the second plot
-  p2 <- ggplot(data_agg, aes(x = false_labeled, y = outcome, color = true_labeled, group = true_labeled)) +
-    geom_line(linewidth = 1) +
-    geom_point(size = 3) +
-    geom_line(data = data_pred, aes(y = predicted), linetype = "dashed") +
-    labs(x = "True News Labeled", y = "Pr(Fake News Selected)", color = "Fake News") +
-    scale_color_manual(values = c("blue", "red"), labels = c("Unlabeled", "Labeled")) +
-    theme_classic() +
-    theme(legend.position = "top")
-  ggsave(paste0("plot_", i, ".png"), p2)
-  i<<-i+1
-}
 
 
 # "Q38", #AI LIFE BETTER
@@ -290,7 +294,6 @@ controls_list <- list(
   Q41r7 = unique(controls$Q41r7)
   # add more controls and their levels here as needed
 )
-
 # Iterate over each control and its levels
 for (control_name in names(controls_list)) {
   print(control_name)
@@ -305,26 +308,83 @@ for (control_name in names(controls_list)) {
     strength_subset <- rbind(data_R_subset, data_L_subset)
     controls_subset <- controls[subset, ]
     
+    print("analyse_data(data_R)")
     analyse_data(data_R_subset)
+    
+    print("analyse_data(data_L)")
     analyse_data(data_L_subset)
+    
+    print("analyse_data(strength)")
     analyse_data(strength_subset)
     
-    analyse_data_with_controls_basic(data_R_subset, controls_subset, control_name)
-    analyse_data_with_controls_basic(data_L_subset, controls_subset, control_name)
     strength_controls_subset <- rbind(controls_subset, controls_subset)
+    
+    print("analyse_data_mycontrols(data_R, controls$Interest47, controls$Q45)")
+    analyse_data_mycontrols(data_R_subset, controls_subset$Interest47, controls_subset$Q45, control_name)
+    
+    print("analyse_data_mycontrols(data_L, controls$Interest48, controls$Q46)")
+    analyse_data_mycontrols(data_L_subset, controls_subset$Interest48, controls_subset$Q46, control_name)
+    
+    print("analyse_data_mycontrols(strength,  c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))")
+    analyse_data_mycontrols(strength_subset,  c(controls_subset$Interest47, controls_subset$Interest48), c(controls_subset$Q45, controls_subset$Q46), control_name)
+    
+    
+    print("analyse_data_with_controls_basic(data_R, controls)")
+    analyse_data_with_controls_basic(data_R_subset, controls_subset, control_name)
+    
+    print("analyse_data_with_controls_basic(data_L, controls)")
+    analyse_data_with_controls_basic(data_L_subset, controls_subset, control_name)
+    
+    print("analyse_data_with_controls_basic(strength, strength_controls)")
     analyse_data_with_controls_basic(strength_subset, strength_controls_subset, control_name)
     
-    analyse_data_with_controls_knowledge(data_R_subset, controls_subset, controls_subset$Q45, control_name)
-    analyse_data_with_controls_knowledge(data_L_subset, controls_subset, controls_subset$Q46, control_name)
-    strength_controls_subset <- rbind(controls_subset, controls_subset)
-    analyse_data_with_controls_knowledge(strength_subset, strength_controls_subset, c(controls_subset$Q45, controls_subset$Q46), control_name)
+    print("analyse_data_with_allcontrols(data_R, controls, controls$Interest47, controls$Q45)")
+    analyse_data_with_allcontrols(data_R_subset, controls_subset, controls_subset$Interest47, controls_subset$Q45, control_name)
     
-    analyse_data_with_controls_time(data_R_subset, controls_subset, controls_subset$Interest47, control_name)
-    analyse_data_with_controls_time(data_L_subset, controls_subset, controls_subset$Interest48, control_name)
-    strength_controls_subset <- rbind(controls_subset, controls_subset)
-    analyse_data_with_controls_time(strength_subset, strength_controls_subset, c(controls_subset$Interest47, controls_subset$Interest48), control_name)
+    print("analyse_data_with_allcontrols(data_L, controls, controls$Interest48, controls$Q46)")
+    analyse_data_with_allcontrols(data_L_subset, controls_subset, controls_subset$Interest48, controls_subset$Q46, control_name)
+    
+    print("analyse_data_with_allcontrols(strength, strength_controls, c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))")
+    analyse_data_with_allcontrols(strength_subset, strength_controls_subset, c(controls_subset$Interest47, controls_subset$Interest48), c(controls_subset$Q45, controls_subset$Q46), control_name)
   }
 }
+
+# # Iterate over each control and its levels
+# for (control_name in names(controls_list)) {
+#   print(control_name)
+#   levels <- controls_list[[control_name]]
+#   
+#   for (level in levels) {
+#     print(level)
+#     # Create the subset
+#     subset <- controls[[control_name]] == level
+#     data_R_subset <- data_R[subset, ]
+#     data_L_subset <- data_L[subset, ]
+#     strength_subset <- rbind(data_R_subset, data_L_subset)
+#     controls_subset <- controls[subset, ]
+#     
+#     analyse_data(data_R_subset)
+#     analyse_data(data_L_subset)
+#     analyse_data(strength_subset)
+#     
+#     analyse_data_with_controls_basic(data_R_subset, controls_subset, control_name)
+#     analyse_data_with_controls_basic(data_L_subset, controls_subset, control_name)
+#     strength_controls_subset <- rbind(controls_subset, controls_subset)
+#     analyse_data_with_controls_basic(strength_subset, strength_controls_subset, control_name)
+#     
+#     analyse_data_with_controls_knowledge(data_R_subset, controls_subset, controls_subset$Q45, control_name)
+#     analyse_data_with_controls_knowledge(data_L_subset, controls_subset, controls_subset$Q46, control_name)
+#     strength_controls_subset <- rbind(controls_subset, controls_subset)
+#     analyse_data_with_controls_knowledge(strength_subset, strength_controls_subset, c(controls_subset$Q45, controls_subset$Q46), control_name)
+#     
+#     analyse_data_with_controls_time(data_R_subset, controls_subset, controls_subset$Interest47, control_name)
+#     analyse_data_with_controls_time(data_L_subset, controls_subset, controls_subset$Interest48, control_name)
+#     strength_controls_subset <- rbind(controls_subset, controls_subset)
+#     analyse_data_with_controls_time(strength_subset, strength_controls_subset, c(controls_subset$Interest47, controls_subset$Interest48), control_name)
+#   }
+# }
+
+
 
 
 sink()

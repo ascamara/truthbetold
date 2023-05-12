@@ -109,6 +109,7 @@ analyse_data <- function(df) {
     theme(legend.position = "top")
   
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
 
   # Create and display the second plot
@@ -120,6 +121,7 @@ analyse_data <- function(df) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
@@ -145,6 +147,7 @@ analyse_data_mycontrols <- function(df, time, know) {
     theme(legend.position = "top")
   
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -156,6 +159,7 @@ analyse_data_mycontrols <- function(df, time, know) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
@@ -182,6 +186,7 @@ analyse_data_with_controls_basic <- function(df, controls) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -194,6 +199,7 @@ analyse_data_with_controls_basic <- function(df, controls) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 
@@ -220,6 +226,7 @@ analyse_data_with_allcontrols <- function(df, controls, time, know) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p1)
+  print(i)
   i<<-i+1
   
   # Create and display the second plot
@@ -232,6 +239,7 @@ analyse_data_with_allcontrols <- function(df, controls, time, know) {
     theme_classic() +
     theme(legend.position = "top")
   ggsave(paste0("plot_", i, ".png"), p2)
+  print(i)
   i<<-i+1
 }
 

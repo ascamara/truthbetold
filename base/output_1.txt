@@ -1,0 +1,778 @@
+                             Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled                  1    0.2  0.1632   0.656  0.418
+false_labeled                 1    0.6  0.5614   2.256  0.133
+true_labeled:false_labeled    1    0.3  0.3060   1.230  0.268
+Residuals                  1643  408.8  0.2488               
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled, family = binomial(link = "logit"), 
+    data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.157  -1.144  -1.050   1.211   1.310  
+
+Coefficients:
+                             Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                  -0.30748    0.09958  -3.088  0.00202 **
+true_labeled1                 0.19085    0.14020   1.361  0.17345   
+false_labeled1                0.25893    0.14011   1.848  0.06459 . 
+true_labeled1:false_labeled1 -0.22038    0.19785  -1.114  0.26531   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.3  on 1643  degrees of freedom
+AIC: 2279.3
+
+Number of Fisher Scoring iterations: 3
+
+                             Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled                  1    0.0 0.00748   0.030  0.863
+false_labeled                 1    0.0 0.02556   0.102  0.749
+true_labeled:false_labeled    1    0.1 0.11078   0.442  0.506
+Residuals                  1643  411.5 0.25043               
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled, family = binomial(link = "logit"), 
+    data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.186  -1.165  -1.145   1.190   1.211  
+
+Coefficients:
+                             Estimate Std. Error z value Pr(>|z|)
+(Intercept)                   0.01942    0.09854   0.197    0.844
+true_labeled1                -0.08270    0.13947  -0.593    0.553
+false_labeled1               -0.09713    0.13940  -0.697    0.486
+true_labeled1:false_labeled1  0.13128    0.19720   0.666    0.506
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2282.1  on 1643  degrees of freedom
+AIC: 2290.1
+
+Number of Fisher Scoring iterations: 3
+
+                             Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled                  1    0.1 0.05062   0.203  0.653
+false_labeled                 1    0.2 0.17423   0.698  0.404
+true_labeled:false_labeled    1    0.0 0.02439   0.098  0.755
+Residuals                  3290  821.7 0.24975               
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled, family = binomial(link = "logit"), 
+    data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.155  -1.151  -1.117   1.204   1.239  
+
+Coefficients:
+                             Estimate Std. Error z value Pr(>|z|)  
+(Intercept)                  -0.14327    0.06981  -2.052   0.0401 *
+true_labeled1                 0.05330    0.09871   0.540   0.5892  
+false_labeled1                0.08015    0.09865   0.812   0.4166  
+true_labeled1:false_labeled1 -0.04371    0.13954  -0.313   0.7541  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4560.2  on 3293  degrees of freedom
+Residual deviance: 4559.2  on 3290  degrees of freedom
+AIC: 4567.2
+
+Number of Fisher Scoring iterations: 3
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.2   0.163   0.677  0.41076    
+false_labeled                 1    0.6   0.561   2.328  0.12726    
+controls$Q1                   2    6.6   3.306  13.709 1.25e-06 ***
+controls$Q57                  4    2.7   0.686   2.845  0.02292 *  
+controls$Q59                  7    5.0   0.710   2.945  0.00455 ** 
+controls$Q60                  2    0.4   0.215   0.890  0.41103    
+controls$Q61                  4    0.7   0.183   0.758  0.55283    
+controls$Q65                 16    5.5   0.342   1.417  0.12430    
+true_labeled:false_labeled    1    0.4   0.366   1.516  0.21839    
+Residuals                  1608  387.8   0.241                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-2.020  -1.077  -0.836   1.183   2.076  
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.222228   0.703357   1.738 0.082263 .  
+true_labeled1                    0.185792   0.144941   1.282 0.199897    
+false_labeled1                   0.234811   0.145260   1.616 0.105988    
+controls$Q1Female                0.413381   0.108709   3.803 0.000143 ***
+controls$Q1Something else        1.134101   0.835858   1.357 0.174842    
+controls$Q5718-34               -1.858057   0.652956  -2.846 0.004433 ** 
+controls$Q5735-49               -1.803464   0.655719  -2.750 0.005953 ** 
+controls$Q5750-64               -1.891190   0.658561  -2.872 0.004083 ** 
+controls$Q5765 and over         -1.956805   0.666446  -2.936 0.003323 ** 
+controls$Q59Black                0.559134   0.161255   3.467 0.000526 ***
+controls$Q59Asian                0.288551   0.352218   0.819 0.412649    
+controls$Q59AIAN                -0.276033   0.469350  -0.588 0.556454    
+controls$Q59MENA                 0.041987   0.833370   0.050 0.959818    
+controls$Q59NHPI                -1.232969   0.923094  -1.336 0.181650    
+controls$Q59Other                0.698535   0.341999   2.043 0.041102 *  
+controls$Q59NA                  -0.263668   0.605941  -0.435 0.663462    
+controls$Q60!HL                  0.237253   0.185954   1.276 0.202003    
+controls$Q60NA                   0.013944   0.394518   0.035 0.971805    
+controls$Q61R                   -0.023332   0.128344  -0.182 0.855746    
+controls$Q61I                   -0.002426   0.144894  -0.017 0.986640    
+controls$Q61O                    0.194951   0.363597   0.536 0.591839    
+controls$Q61NS                   0.322923   0.318612   1.014 0.310808    
+controls$Q65$10,000 - $19,999   -0.358691   0.307204  -1.168 0.242968    
+controls$Q65$20,000 - $29,999   -0.263500   0.248418  -1.061 0.288821    
+controls$Q65$30,000 - $39,999    0.317131   0.262345   1.209 0.226727    
+controls$Q65$40,000 - $49,999   -0.183324   0.259998  -0.705 0.480749    
+controls$Q65$50,000 - $59,999   -0.144738   0.257851  -0.561 0.574576    
+controls$Q65$60,000 - $69,999   -0.133268   0.308187  -0.432 0.665432    
+controls$Q65$70,000 - $79,999   -0.469499   0.274777  -1.709 0.087515 .  
+controls$Q65$80,000 - $99,999   -0.074919   0.263007  -0.285 0.775755    
+controls$Q65$100,000 - $119,999 -0.184145   0.270957  -0.680 0.496753    
+controls$Q65$120,000 - $149,999 -0.108347   0.267808  -0.405 0.685795    
+controls$Q65$150,000 - $199,999 -0.364761   0.269249  -1.355 0.175502    
+controls$Q65$200,000 - $249,999 -0.470694   0.385407  -1.221 0.221976    
+controls$Q65$250,000 - $349,999 -0.283709   0.426690  -0.665 0.506110    
+controls$Q65$350,000 - $499,999 -0.198499   0.540833  -0.367 0.713600    
+controls$Q65$500,000 or more    -1.031266   0.378783  -2.723 0.006478 ** 
+controls$Q65Prefer not to say    0.318775   0.368536   0.865 0.387052    
+true_labeled1:false_labeled1    -0.254600   0.204991  -1.242 0.214235    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2183.1  on 1608  degrees of freedom
+AIC: 2261.1
+
+Number of Fisher Scoring iterations: 4
+
+                             Df Sum Sq Mean Sq F value  Pr(>F)    
+true_labeled                  1    0.0   0.007   0.031 0.86011    
+false_labeled                 1    0.0   0.026   0.106 0.74455    
+controls$Q1                   2    2.7   1.348   5.602 0.00376 ** 
+controls$Q57                  4   12.9   3.230  13.421 9.2e-11 ***
+controls$Q59                  7    3.4   0.487   2.021 0.04925 *  
+controls$Q60                  2    1.1   0.529   2.200 0.11118    
+controls$Q61                  4    1.3   0.327   1.360 0.24551    
+controls$Q65                 16    3.1   0.191   0.794 0.69432    
+true_labeled:false_labeled    1    0.1   0.097   0.402 0.52606    
+Residuals                  1608  387.0   0.241                    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7194  -1.1432  -0.6684   1.1175   1.7698  
+
+Coefficients:
+                                  Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                       1.146327   0.584621   1.961  0.04990 * 
+true_labeled1                    -0.082657   0.145289  -0.569  0.56942   
+false_labeled1                   -0.056972   0.144962  -0.393  0.69431   
+controls$Q1Female                -0.204902   0.109067  -1.879  0.06029 . 
+controls$Q1Something else        -0.708085   0.756876  -0.936  0.34951   
+controls$Q5718-34                -0.729235   0.515354  -1.415  0.15706   
+controls$Q5735-49                -0.799360   0.518736  -1.541  0.12332   
+controls$Q5750-64                -1.158074   0.522032  -2.218  0.02653 * 
+controls$Q5765 and over          -1.680761   0.533834  -3.148  0.00164 **
+controls$Q59Black                 0.077774   0.159650   0.487  0.62615   
+controls$Q59Asian                 0.133192   0.355006   0.375  0.70752   
+controls$Q59AIAN                 -0.161897   0.455371  -0.356  0.72219   
+controls$Q59MENA                 -1.737297   1.125429  -1.544  0.12267   
+controls$Q59NHPI                -14.687749 307.750719  -0.048  0.96193   
+controls$Q59Other                -0.325696   0.339361  -0.960  0.33719   
+controls$Q59NA                   -0.656207   0.601221  -1.091  0.27507   
+controls$Q60!HL                  -0.280536   0.184413  -1.521  0.12820   
+controls$Q60NA                    0.436666   0.404480   1.080  0.28033   
+controls$Q61R                     0.208978   0.129259   1.617  0.10593   
+controls$Q61I                    -0.067621   0.146262  -0.462  0.64385   
+controls$Q61O                    -0.321377   0.374016  -0.859  0.39020   
+controls$Q61NS                   -0.017457   0.310731  -0.056  0.95520   
+controls$Q65$10,000 - $19,999    -0.229342   0.310962  -0.738  0.46080   
+controls$Q65$20,000 - $29,999     0.123563   0.247483   0.499  0.61758   
+controls$Q65$30,000 - $39,999    -0.007889   0.260927  -0.030  0.97588   
+controls$Q65$40,000 - $49,999     0.009266   0.260181   0.036  0.97159   
+controls$Q65$50,000 - $59,999     0.210299   0.257594   0.816  0.41427   
+controls$Q65$60,000 - $69,999    -0.161197   0.315613  -0.511  0.60953   
+controls$Q65$70,000 - $79,999     0.212563   0.272183   0.781  0.43483   
+controls$Q65$80,000 - $99,999    -0.141344   0.264523  -0.534  0.59311   
+controls$Q65$100,000 - $119,999   0.444178   0.272914   1.628  0.10362   
+controls$Q65$120,000 - $149,999   0.312660   0.267676   1.168  0.24279   
+controls$Q65$150,000 - $199,999   0.230571   0.266381   0.866  0.38673   
+controls$Q65$200,000 - $249,999   0.085513   0.374302   0.228  0.81929   
+controls$Q65$250,000 - $349,999   0.488581   0.433182   1.128  0.25937   
+controls$Q65$350,000 - $499,999   0.280473   0.538644   0.521  0.60257   
+controls$Q65$500,000 or more      0.451125   0.351969   1.282  0.19994   
+controls$Q65Prefer not to say     0.151502   0.361651   0.419  0.67528   
+true_labeled1:false_labeled1      0.131019   0.205279   0.638  0.52331   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2178.3  on 1608  degrees of freedom
+AIC: 2256.3
+
+Number of Fisher Scoring iterations: 13
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.1  0.0506   0.205  0.65041    
+false_labeled                 1    0.2  0.1742   0.707  0.40049    
+controls$Q1                   2    0.5  0.2299   0.933  0.39355    
+controls$Q57                  4    9.8  2.4562   9.968 5.13e-08 ***
+controls$Q59                  7    5.6  0.7960   3.230  0.00204 ** 
+controls$Q60                  2    0.3  0.1386   0.563  0.56982    
+controls$Q61                  4    0.5  0.1187   0.482  0.74925    
+controls$Q65                 16    3.0  0.1853   0.752  0.74144    
+true_labeled:false_labeled    1    0.1  0.0529   0.215  0.64308    
+Residuals                  3255  802.1  0.2464                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9413  -1.1405  -0.8994   1.1892   2.2862  
+
+Coefficients:
+                                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.10097    0.43318   2.542 0.011035 *  
+true_labeled1                    0.05937    0.10043   0.591 0.554380    
+false_labeled1                   0.09198    0.10051   0.915 0.360137    
+controls$Q1Female                0.10438    0.07589   1.375 0.169006    
+controls$Q1Something else        0.17506    0.51675   0.339 0.734778    
+controls$Q5718-34               -1.21308    0.39131  -3.100 0.001935 ** 
+controls$Q5735-49               -1.21940    0.39347  -3.099 0.001941 ** 
+controls$Q5750-64               -1.43928    0.39577  -3.637 0.000276 ***
+controls$Q5765 and over         -1.71655    0.40234  -4.266 1.99e-05 ***
+controls$Q59Black                0.30614    0.11154   2.745 0.006057 ** 
+controls$Q59Asian                0.20792    0.24806   0.838 0.401919    
+controls$Q59AIAN                -0.21383    0.32293  -0.662 0.507879    
+controls$Q59MENA                -0.70590    0.62497  -1.129 0.258689    
+controls$Q59NHPI                -2.07472    0.78302  -2.650 0.008058 ** 
+controls$Q59Other                0.18808    0.23399   0.804 0.421504    
+controls$Q59NA                  -0.44124    0.41903  -1.053 0.292344    
+controls$Q60!HL                 -0.01862    0.12745  -0.146 0.883846    
+controls$Q60NA                   0.21825    0.27250   0.801 0.423193    
+controls$Q61R                    0.08733    0.08946   0.976 0.328987    
+controls$Q61I                   -0.03579    0.10145  -0.353 0.724265    
+controls$Q61O                   -0.06456    0.25273  -0.255 0.798383    
+controls$Q61NS                   0.14106    0.21821   0.646 0.517993    
+controls$Q65$10,000 - $19,999   -0.29371    0.21588  -1.361 0.173658    
+controls$Q65$20,000 - $29,999   -0.06861    0.17339  -0.396 0.692352    
+controls$Q65$30,000 - $39,999    0.15028    0.18205   0.825 0.409103    
+controls$Q65$40,000 - $49,999   -0.08638    0.18183  -0.475 0.634755    
+controls$Q65$50,000 - $59,999    0.02614    0.18020   0.145 0.884671    
+controls$Q65$60,000 - $69,999   -0.14330    0.21753  -0.659 0.510059    
+controls$Q65$70,000 - $79,999   -0.13235    0.19027  -0.696 0.486681    
+controls$Q65$80,000 - $99,999   -0.11097    0.18436  -0.602 0.547233    
+controls$Q65$100,000 - $119,999  0.12457    0.18906   0.659 0.509954    
+controls$Q65$120,000 - $149,999  0.10033    0.18698   0.537 0.591560    
+controls$Q65$150,000 - $199,999 -0.06968    0.18642  -0.374 0.708548    
+controls$Q65$200,000 - $249,999 -0.18333    0.26447  -0.693 0.488185    
+controls$Q65$250,000 - $349,999  0.08405    0.29518   0.285 0.775856    
+controls$Q65$350,000 - $499,999  0.03596    0.37385   0.096 0.923370    
+controls$Q65$500,000 or more    -0.23999    0.24324  -0.987 0.323820    
+controls$Q65Prefer not to say    0.22219    0.25185   0.882 0.377652    
+true_labeled1:false_labeled1    -0.06780    0.14201  -0.477 0.633031    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4560.2  on 3293  degrees of freedom
+Residual deviance: 4477.5  on 3255  degrees of freedom
+AIC: 4555.5
+
+Number of Fisher Scoring iterations: 4
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.2   0.163   0.677  0.41084    
+false_labeled                 1    0.6   0.561   2.327  0.12733    
+controls$Q1                   2    6.6   3.306  13.704 1.25e-06 ***
+controls$Q57                  4    2.7   0.686   2.844  0.02296 *  
+controls$Q59                  7    5.0   0.710   2.944  0.00457 ** 
+controls$Q60                  2    0.4   0.215   0.889  0.41115    
+controls$Q61                  4    0.7   0.183   0.757  0.55299    
+controls$Q65                 16    5.5   0.342   1.417  0.12451    
+know                          1    0.1   0.134   0.556  0.45589    
+true_labeled:false_labeled    1    0.3   0.348   1.442  0.23002    
+Residuals                  1607  387.6   0.241                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + know, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-2.007  -1.074  -0.829   1.185   2.092  
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.200652   0.704920   1.703 0.088522 .  
+true_labeled1                    0.182605   0.145012   1.259 0.207944    
+false_labeled1                   0.230499   0.145405   1.585 0.112915    
+controls$Q1Female                0.406965   0.109059   3.732 0.000190 ***
+controls$Q1Something else        1.112794   0.835702   1.332 0.183002    
+controls$Q5718-34               -1.864048   0.653831  -2.851 0.004359 ** 
+controls$Q5735-49               -1.812108   0.656669  -2.760 0.005788 ** 
+controls$Q5750-64               -1.919829   0.660583  -2.906 0.003658 ** 
+controls$Q5765 and over         -1.994672   0.669317  -2.980 0.002881 ** 
+controls$Q59Black                0.561260   0.161352   3.478 0.000504 ***
+controls$Q59Asian                0.298946   0.352704   0.848 0.396671    
+controls$Q59AIAN                -0.288636   0.469228  -0.615 0.538469    
+controls$Q59MENA                 0.028173   0.833587   0.034 0.973039    
+controls$Q59NHPI                -1.220254   0.920652  -1.325 0.185031    
+controls$Q59Other                0.686933   0.342375   2.006 0.044816 *  
+controls$Q59NA                  -0.274166   0.605869  -0.453 0.650896    
+controls$Q60!HL                  0.228999   0.186317   1.229 0.219042    
+controls$Q60NA                   0.007906   0.394646   0.020 0.984017    
+controls$Q61R                   -0.020890   0.128384  -0.163 0.870743    
+controls$Q61I                   -0.010857   0.145337  -0.075 0.940454    
+controls$Q61O                    0.189406   0.363805   0.521 0.602629    
+controls$Q61NS                   0.323788   0.318706   1.016 0.309656    
+controls$Q65$10,000 - $19,999   -0.356708   0.307292  -1.161 0.245718    
+controls$Q65$20,000 - $29,999   -0.260910   0.248505  -1.050 0.293754    
+controls$Q65$30,000 - $39,999    0.320163   0.262436   1.220 0.222478    
+controls$Q65$40,000 - $49,999   -0.176424   0.260170  -0.678 0.497701    
+controls$Q65$50,000 - $59,999   -0.137438   0.258071  -0.533 0.594339    
+controls$Q65$60,000 - $69,999   -0.127558   0.308357  -0.414 0.679116    
+controls$Q65$70,000 - $79,999   -0.462710   0.275021  -1.682 0.092480 .  
+controls$Q65$80,000 - $99,999   -0.066605   0.263357  -0.253 0.800340    
+controls$Q65$100,000 - $119,999 -0.172514   0.271530  -0.635 0.525206    
+controls$Q65$120,000 - $149,999 -0.090231   0.268992  -0.335 0.737291    
+controls$Q65$150,000 - $199,999 -0.348912   0.270229  -1.291 0.196645    
+controls$Q65$200,000 - $249,999 -0.455517   0.385938  -1.180 0.237886    
+controls$Q65$250,000 - $349,999 -0.269623   0.427328  -0.631 0.528073    
+controls$Q65$350,000 - $499,999 -0.157734   0.543569  -0.290 0.771678    
+controls$Q65$500,000 or more    -1.001135   0.381018  -2.628 0.008601 ** 
+controls$Q65Prefer not to say    0.324626   0.368770   0.880 0.378700    
+know                             0.082319   0.112998   0.728 0.466308    
+true_labeled1:false_labeled1    -0.248131   0.205211  -1.209 0.226604    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2182.5  on 1607  degrees of freedom
+AIC: 2262.5
+
+Number of Fisher Scoring iterations: 4
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.0   0.007   0.031  0.86014    
+false_labeled                 1    0.0   0.026   0.106  0.74461    
+controls$Q1                   2    2.7   1.348   5.600  0.00377 ** 
+controls$Q57                  4   12.9   3.230  13.415 9.31e-11 ***
+controls$Q59                  7    3.4   0.487   2.021  0.04937 *  
+controls$Q60                  2    1.1   0.529   2.199  0.11130    
+controls$Q61                  4    1.3   0.327   1.360  0.24574    
+controls$Q65                 16    3.1   0.191   0.793  0.69475    
+know                          1    0.1   0.063   0.261  0.60932    
+true_labeled:false_labeled    1    0.1   0.094   0.389  0.53293    
+Residuals                  1607  387.0   0.241                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + know, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7119  -1.1399  -0.6601   1.1178   1.7772  
+
+Coefficients:
+                                  Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                       1.130279   0.585430   1.931  0.05352 . 
+true_labeled1                    -0.080067   0.145390  -0.551  0.58184   
+false_labeled1                   -0.053578   0.145141  -0.369  0.71202   
+controls$Q1Female                -0.206976   0.109156  -1.896  0.05794 . 
+controls$Q1Something else        -0.711491   0.756376  -0.941  0.34688   
+controls$Q5718-34                -0.730845   0.515248  -1.418  0.15606   
+controls$Q5735-49                -0.803102   0.518683  -1.548  0.12154   
+controls$Q5750-64                -1.167953   0.522305  -2.236  0.02534 * 
+controls$Q5765 and over          -1.686478   0.533851  -3.159  0.00158 **
+controls$Q59Black                 0.077625   0.159666   0.486  0.62685   
+controls$Q59Asian                 0.131485   0.355050   0.370  0.71114   
+controls$Q59AIAN                 -0.161624   0.455460  -0.355  0.72269   
+controls$Q59MENA                 -1.740092   1.123858  -1.548  0.12155   
+controls$Q59NHPI                -14.703482 307.352409  -0.048  0.96184   
+controls$Q59Other                -0.326384   0.339389  -0.962  0.33621   
+controls$Q59NA                   -0.658260   0.601452  -1.094  0.27376   
+controls$Q60!HL                  -0.280863   0.184466  -1.523  0.12786   
+controls$Q60NA                    0.440332   0.404646   1.088  0.27651   
+controls$Q61R                     0.201530   0.130108   1.549  0.12140   
+controls$Q61I                    -0.077557   0.147664  -0.525  0.59943   
+controls$Q61O                    -0.338985   0.375491  -0.903  0.36664   
+controls$Q61NS                   -0.035143   0.312846  -0.112  0.91056   
+controls$Q65$10,000 - $19,999    -0.224312   0.311142  -0.721  0.47095   
+controls$Q65$20,000 - $29,999     0.129712   0.247857   0.523  0.60074   
+controls$Q65$30,000 - $39,999    -0.003948   0.261108  -0.015  0.98794   
+controls$Q65$40,000 - $49,999     0.014426   0.260443   0.055  0.95583   
+controls$Q65$50,000 - $59,999     0.215727   0.257912   0.836  0.40291   
+controls$Q65$60,000 - $69,999    -0.156157   0.315893  -0.494  0.62107   
+controls$Q65$70,000 - $79,999     0.219659   0.272610   0.806  0.42038   
+controls$Q65$80,000 - $99,999    -0.136330   0.264790  -0.515  0.60665   
+controls$Q65$100,000 - $119,999   0.448871   0.273103   1.644  0.10026   
+controls$Q65$120,000 - $149,999   0.324566   0.268834   1.207  0.22731   
+controls$Q65$150,000 - $199,999   0.242392   0.267508   0.906  0.36488   
+controls$Q65$200,000 - $249,999   0.095652   0.374877   0.255  0.79860   
+controls$Q65$250,000 - $349,999   0.500148   0.433917   1.153  0.24906   
+controls$Q65$350,000 - $499,999   0.298535   0.539905   0.553  0.58030   
+controls$Q65$500,000 or more      0.468028   0.353622   1.324  0.18566   
+controls$Q65Prefer not to say     0.157778   0.361872   0.436  0.66283   
+know                              0.058236   0.117289   0.497  0.61953   
+true_labeled1:false_labeled1      0.129069   0.205334   0.629  0.52962   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2178.0  on 1607  degrees of freedom
+AIC: 2258
+
+Number of Fisher Scoring iterations: 13
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.1  0.0506   0.205  0.65037    
+false_labeled                 1    0.2  0.1742   0.707  0.40043    
+controls$Q1                   2    0.5  0.2299   0.933  0.39345    
+controls$Q57                  4    9.8  2.4562   9.971 5.11e-08 ***
+controls$Q59                  7    5.6  0.7960   3.231  0.00203 ** 
+controls$Q60                  2    0.3  0.1386   0.563  0.56974    
+controls$Q61                  4    0.5  0.1187   0.482  0.74916    
+controls$Q65                 16    3.0  0.1853   0.752  0.74123    
+know                          1    0.5  0.4543   1.844  0.17458    
+true_labeled:false_labeled    1    0.0  0.0490   0.199  0.65574    
+Residuals                  3254  801.6  0.2464                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + know, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.968  -1.138  -0.898   1.184   2.308  
+
+Coefficients:
+                                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.07374    0.43424   2.473 0.013410 *  
+true_labeled1                    0.05941    0.10046   0.591 0.554291    
+false_labeled1                   0.09199    0.10055   0.915 0.360268    
+controls$Q1Female                0.09844    0.07603   1.295 0.195451    
+controls$Q1Something else        0.15928    0.51715   0.308 0.758088    
+controls$Q5718-34               -1.21890    0.39188  -3.110 0.001868 ** 
+controls$Q5735-49               -1.22893    0.39410  -3.118 0.001819 ** 
+controls$Q5750-64               -1.46703    0.39687  -3.697 0.000219 ***
+controls$Q5765 and over         -1.74646    0.40351  -4.328  1.5e-05 ***
+controls$Q59Black                0.30709    0.11158   2.752 0.005920 ** 
+controls$Q59Asian                0.21284    0.24819   0.858 0.391132    
+controls$Q59AIAN                -0.22190    0.32295  -0.687 0.492012    
+controls$Q59MENA                -0.72024    0.62387  -1.154 0.248310    
+controls$Q59NHPI                -2.07614    0.78087  -2.659 0.007843 ** 
+controls$Q59Other                0.17980    0.23408   0.768 0.442415    
+controls$Q59NA                  -0.45084    0.41910  -1.076 0.282052    
+controls$Q60!HL                 -0.02407    0.12756  -0.189 0.850354    
+controls$Q60NA                   0.21846    0.27261   0.801 0.422913    
+controls$Q61R                    0.08194    0.08957   0.915 0.360280    
+controls$Q61I                   -0.04997    0.10201  -0.490 0.624214    
+controls$Q61O                   -0.08382    0.25305  -0.331 0.740447    
+controls$Q61NS                   0.12517    0.21872   0.572 0.567127    
+controls$Q65$10,000 - $19,999   -0.28815    0.21598  -1.334 0.182150    
+controls$Q65$20,000 - $29,999   -0.06168    0.17352  -0.355 0.722238    
+controls$Q65$30,000 - $39,999    0.15593    0.18215   0.856 0.391968    
+controls$Q65$40,000 - $49,999   -0.07724    0.18200  -0.424 0.671259    
+controls$Q65$50,000 - $59,999    0.03598    0.18041   0.199 0.841917    
+controls$Q65$60,000 - $69,999   -0.13508    0.21772  -0.620 0.534976    
+controls$Q65$70,000 - $79,999   -0.12115    0.19050  -0.636 0.524812    
+controls$Q65$80,000 - $99,999   -0.10079    0.18459  -0.546 0.585045    
+controls$Q65$100,000 - $119,999  0.13636    0.18930   0.720 0.471310    
+controls$Q65$120,000 - $149,999  0.12231    0.18774   0.651 0.514738    
+controls$Q65$150,000 - $199,999 -0.04863    0.18714  -0.260 0.794955    
+controls$Q65$200,000 - $249,999 -0.16478    0.26483  -0.622 0.533790    
+controls$Q65$250,000 - $349,999  0.10347    0.29552   0.350 0.726237    
+controls$Q65$350,000 - $499,999  0.07825    0.37514   0.209 0.834781    
+controls$Q65$500,000 or more    -0.20594    0.24455  -0.842 0.399728    
+controls$Q65Prefer not to say    0.23068    0.25205   0.915 0.360070    
+know                             0.10433    0.07687   1.357 0.174702    
+true_labeled1:false_labeled1    -0.06507    0.14206  -0.458 0.646921    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4560.2  on 3293  degrees of freedom
+Residual deviance: 4475.6  on 3254  degrees of freedom
+AIC: 4555.6
+
+Number of Fisher Scoring iterations: 4
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.2   0.163   0.677  0.41074    
+false_labeled                 1    0.6   0.561   2.328  0.12725    
+controls$Q1                   2    6.6   3.306  13.710 1.25e-06 ***
+controls$Q57                  4    2.7   0.686   2.845  0.02291 *  
+controls$Q59                  7    5.0   0.710   2.945  0.00455 ** 
+controls$Q60                  2    0.4   0.215   0.890  0.41100    
+controls$Q61                  4    0.7   0.183   0.758  0.55278    
+controls$Q65                 16    5.5   0.342   1.418  0.12425    
+time                          1    0.3   0.296   1.229  0.26770    
+true_labeled:false_labeled    1    0.3   0.343   1.422  0.23325    
+Residuals                  1607  387.5   0.241                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + time, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.0219  -1.0748  -0.8327   1.1843   2.0726  
+
+Coefficients:
+                                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.2282686  0.7035102   1.746 0.080826 .  
+true_labeled1                    0.1843782  0.1449745   1.272 0.203445    
+false_labeled1                   0.2336352  0.1452780   1.608 0.107793    
+controls$Q1Female                0.4120452  0.1087532   3.789 0.000151 ***
+controls$Q1Something else        1.1259306  0.8360999   1.347 0.178094    
+controls$Q5718-34               -1.8579808  0.6532016  -2.844 0.004449 ** 
+controls$Q5735-49               -1.8006832  0.6559579  -2.745 0.006049 ** 
+controls$Q5750-64               -1.8777944  0.6589529  -2.850 0.004377 ** 
+controls$Q5765 and over         -1.9341167  0.6670559  -2.899 0.003738 ** 
+controls$Q59Black                0.5558432  0.1612991   3.446 0.000569 ***
+controls$Q59Asian                0.2948692  0.3523641   0.837 0.402687    
+controls$Q59AIAN                -0.2810811  0.4695413  -0.599 0.549420    
+controls$Q59MENA                 0.0337139  0.8335079   0.040 0.967736    
+controls$Q59NHPI                -1.2337014  0.9202060  -1.341 0.180024    
+controls$Q59Other                0.6967679  0.3420771   2.037 0.041663 *  
+controls$Q59NA                  -0.2639306  0.6061804  -0.435 0.663273    
+controls$Q60!HL                  0.2387439  0.1859687   1.284 0.199217    
+controls$Q60NA                   0.0161939  0.3945511   0.041 0.967261    
+controls$Q61R                   -0.0237406  0.1283593  -0.185 0.853265    
+controls$Q61I                    0.0074708  0.1451981   0.051 0.958965    
+controls$Q61O                    0.2014024  0.3636751   0.554 0.579717    
+controls$Q61NS                   0.3268847  0.3186774   1.026 0.305007    
+controls$Q65$10,000 - $19,999   -0.3582713  0.3071737  -1.166 0.243474    
+controls$Q65$20,000 - $29,999   -0.2645864  0.2483931  -1.065 0.286789    
+controls$Q65$30,000 - $39,999    0.3287973  0.2627772   1.251 0.210847    
+controls$Q65$40,000 - $49,999   -0.1721270  0.2603108  -0.661 0.508460    
+controls$Q65$50,000 - $59,999   -0.1406281  0.2578851  -0.545 0.585538    
+controls$Q65$60,000 - $69,999   -0.1299356  0.3083629  -0.421 0.673483    
+controls$Q65$70,000 - $79,999   -0.4643581  0.2748238  -1.690 0.091093 .  
+controls$Q65$80,000 - $99,999   -0.0769190  0.2629917  -0.292 0.769922    
+controls$Q65$100,000 - $119,999 -0.1827549  0.2709436  -0.675 0.499985    
+controls$Q65$120,000 - $149,999 -0.1072336  0.2678014  -0.400 0.688846    
+controls$Q65$150,000 - $199,999 -0.3644323  0.2691978  -1.354 0.175809    
+controls$Q65$200,000 - $249,999 -0.4728324  0.3853356  -1.227 0.219798    
+controls$Q65$250,000 - $349,999 -0.2872181  0.4266830  -0.673 0.500857    
+controls$Q65$350,000 - $499,999 -0.1997364  0.5408551  -0.369 0.711906    
+controls$Q65$500,000 or more    -1.0319270  0.3787644  -2.724 0.006441 ** 
+controls$Q65Prefer not to say    0.3185841  0.3685367   0.864 0.387337    
+time                            -0.0007816  0.0008148  -0.959 0.337424    
+true_labeled1:false_labeled1    -0.2473890  0.2051308  -1.206 0.227815    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2181.8  on 1607  degrees of freedom
+AIC: 2261.8
+
+Number of Fisher Scoring iterations: 4
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.0   0.007   0.031  0.86015    
+false_labeled                 1    0.0   0.026   0.106  0.74462    
+controls$Q1                   2    2.7   1.348   5.599  0.00377 ** 
+controls$Q57                  4   12.9   3.230  13.413 9.34e-11 ***
+controls$Q59                  7    3.4   0.487   2.020  0.04939 *  
+controls$Q60                  2    1.1   0.529   2.198  0.11132    
+controls$Q61                  4    1.3   0.327   1.359  0.24579    
+controls$Q65                 16    3.1   0.191   0.793  0.69484    
+time                          1    0.0   0.019   0.078  0.78026    
+true_labeled:false_labeled    1    0.1   0.099   0.411  0.52153    
+Residuals                  1607  387.0   0.241                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + time, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7190  -1.1425  -0.6679   1.1177   1.7680  
+
+Coefficients:
+                                  Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      1.146e+00  5.846e-01   1.960   0.0500 . 
+true_labeled1                   -8.261e-02  1.453e-01  -0.569   0.5696   
+false_labeled1                  -5.885e-02  1.451e-01  -0.406   0.6850   
+controls$Q1Female               -2.043e-01  1.091e-01  -1.872   0.0612 . 
+controls$Q1Something else       -7.059e-01  7.568e-01  -0.933   0.3510   
+controls$Q5718-34               -7.309e-01  5.154e-01  -1.418   0.1562   
+controls$Q5735-49               -8.031e-01  5.189e-01  -1.548   0.1217   
+controls$Q5750-64               -1.161e+00  5.222e-01  -2.224   0.0262 * 
+controls$Q5765 and over         -1.685e+00  5.341e-01  -3.155   0.0016 **
+controls$Q59Black                7.452e-02  1.600e-01   0.466   0.6415   
+controls$Q59Asian                1.322e-01  3.550e-01   0.372   0.7097   
+controls$Q59AIAN                -1.612e-01  4.553e-01  -0.354   0.7233   
+controls$Q59MENA                -1.736e+00  1.125e+00  -1.543   0.1229   
+controls$Q59NHPI                -1.469e+01  3.078e+02  -0.048   0.9619   
+controls$Q59Other               -3.226e-01  3.395e-01  -0.950   0.3420   
+controls$Q59NA                  -6.553e-01  6.012e-01  -1.090   0.2758   
+controls$Q60!HL                 -2.764e-01  1.849e-01  -1.495   0.1350   
+controls$Q60NA                   4.411e-01  4.047e-01   1.090   0.2757   
+controls$Q61R                    2.078e-01  1.293e-01   1.607   0.1080   
+controls$Q61I                   -7.074e-02  1.467e-01  -0.482   0.6295   
+controls$Q61O                   -3.247e-01  3.742e-01  -0.868   0.3855   
+controls$Q61NS                  -1.918e-02  3.108e-01  -0.062   0.9508   
+controls$Q65$10,000 - $19,999   -2.305e-01  3.110e-01  -0.741   0.4586   
+controls$Q65$20,000 - $29,999    1.230e-01  2.475e-01   0.497   0.6192   
+controls$Q65$30,000 - $39,999   -9.271e-03  2.610e-01  -0.036   0.9717   
+controls$Q65$40,000 - $49,999    8.163e-03  2.602e-01   0.031   0.9750   
+controls$Q65$50,000 - $59,999    2.096e-01  2.576e-01   0.814   0.4157   
+controls$Q65$60,000 - $69,999   -1.619e-01  3.156e-01  -0.513   0.6081   
+controls$Q65$70,000 - $79,999    2.118e-01  2.722e-01   0.778   0.4365   
+controls$Q65$80,000 - $99,999   -1.466e-01  2.652e-01  -0.553   0.5803   
+controls$Q65$100,000 - $119,999  4.426e-01  2.730e-01   1.622   0.1049   
+controls$Q65$120,000 - $149,999  3.109e-01  2.677e-01   1.161   0.2456   
+controls$Q65$150,000 - $199,999  2.291e-01  2.664e-01   0.860   0.3898   
+controls$Q65$200,000 - $249,999  8.421e-02  3.743e-01   0.225   0.8220   
+controls$Q65$250,000 - $349,999  4.881e-01  4.332e-01   1.127   0.2599   
+controls$Q65$350,000 - $499,999  2.794e-01  5.387e-01   0.519   0.6039   
+controls$Q65$500,000 or more     4.502e-01  3.520e-01   1.279   0.2009   
+controls$Q65Prefer not to say    1.503e-01  3.617e-01   0.416   0.6777   
+time                             1.682e-04  5.850e-04   0.287   0.7738   
+true_labeled1:false_labeled1     1.325e-01  2.053e-01   0.645   0.5187   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2178.2  on 1607  degrees of freedom
+AIC: 2258.2
+
+Number of Fisher Scoring iterations: 13
+
+                             Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled                  1    0.1  0.0506   0.205  0.65046    
+false_labeled                 1    0.2  0.1742   0.707  0.40055    
+controls$Q1                   2    0.5  0.2299   0.933  0.39365    
+controls$Q57                  4    9.8  2.4562   9.965 5.16e-08 ***
+controls$Q59                  7    5.6  0.7960   3.230  0.00204 ** 
+controls$Q60                  2    0.3  0.1386   0.562  0.56991    
+controls$Q61                  4    0.5  0.1187   0.482  0.74935    
+controls$Q65                 16    3.0  0.1853   0.752  0.74167    
+time                          1    0.0  0.0230   0.093  0.76027    
+true_labeled:false_labeled    1    0.1  0.0528   0.214  0.64341    
+Residuals                  3254  802.1  0.2465                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Call:
+glm(formula = outcome ~ true_labeled * false_labeled + controls$Q1 + 
+    controls$Q57 + controls$Q59 + controls$Q60 + controls$Q61 + 
+    controls$Q65 + time, family = binomial(link = "logit"), data = df)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9415  -1.1399  -0.9002   1.1891   2.2859  
+
+Coefficients:
+                                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                      1.1018244  0.4332140   2.543 0.010979 *  
+true_labeled1                    0.0592963  0.1004263   0.590 0.554891    
+false_labeled1                   0.0925913  0.1005311   0.921 0.357039    
+controls$Q1Female                0.1039713  0.0759053   1.370 0.170765    
+controls$Q1Something else        0.1735658  0.5167902   0.336 0.736981    
+controls$Q5718-34               -1.2126278  0.3913369  -3.099 0.001944 ** 
+controls$Q5735-49               -1.2179568  0.3935276  -3.095 0.001968 ** 
+controls$Q5750-64               -1.4372159  0.3958532  -3.631 0.000283 ***
+controls$Q5765 and over         -1.7132590  0.4025166  -4.256 2.08e-05 ***
+controls$Q59Black                0.3070662  0.1115891   2.752 0.005928 ** 
+controls$Q59Asian                0.2087944  0.2480802   0.842 0.399989    
+controls$Q59AIAN                -0.2144940  0.3229490  -0.664 0.506580    
+controls$Q59MENA                -0.7068405  0.6249879  -1.131 0.258069    
+controls$Q59NHPI                -2.0746178  0.7828190  -2.650 0.008045 ** 
+controls$Q59Other                0.1867803  0.2340248   0.798 0.424800    
+controls$Q59NA                  -0.4414881  0.4190411  -1.054 0.292081    
+controls$Q60!HL                 -0.0200238  0.1275366  -0.157 0.875242    
+controls$Q60NA                   0.2167216  0.2725592   0.795 0.426535    
+controls$Q61R                    0.0877060  0.0894720   0.980 0.326957    
+controls$Q61I                   -0.0338031  0.1016644  -0.332 0.739514    
+controls$Q61O                   -0.0628363  0.2527927  -0.249 0.803695    
+controls$Q61NS                   0.1419958  0.2182370   0.651 0.515273    
+controls$Q65$10,000 - $19,999   -0.2932897  0.2158812  -1.359 0.174283    
+controls$Q65$20,000 - $29,999   -0.0685098  0.1733930  -0.395 0.692760    
+controls$Q65$30,000 - $39,999    0.1517762  0.1821293   0.833 0.404651    
+controls$Q65$40,000 - $49,999   -0.0850103  0.1818909  -0.467 0.640235    
+controls$Q65$50,000 - $59,999    0.0266187  0.1802137   0.148 0.882575    
+controls$Q65$60,000 - $69,999   -0.1427398  0.2175343  -0.656 0.511714    
+controls$Q65$70,000 - $79,999   -0.1316826  0.1902850  -0.692 0.488920    
+controls$Q65$80,000 - $99,999   -0.1091712  0.1844543  -0.592 0.553944    
+controls$Q65$100,000 - $119,999  0.1251557  0.1890728   0.662 0.508007    
+controls$Q65$120,000 - $149,999  0.1010026  0.1869996   0.540 0.589113    
+controls$Q65$150,000 - $199,999 -0.0691579  0.1864224  -0.371 0.710657    
+controls$Q65$200,000 - $249,999 -0.1831111  0.2644655  -0.692 0.488698    
+controls$Q65$250,000 - $349,999  0.0838941  0.2951822   0.284 0.776248    
+controls$Q65$350,000 - $499,999  0.0361147  0.3738535   0.097 0.923043    
+controls$Q65$500,000 or more    -0.2398214  0.2432465  -0.986 0.324173    
+controls$Q65Prefer not to say    0.2225337  0.2518523   0.884 0.376919    
+time                            -0.0001239  0.0004160  -0.298 0.765791    
+true_labeled1:false_labeled1    -0.0677877  0.1420095  -0.477 0.633116    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 4560.2  on 3293  degrees of freedom
+Residual deviance: 4477.4  on 3254  degrees of freedom
+AIC: 4557.4
+
+Number of Fisher Scoring iterations: 4
+

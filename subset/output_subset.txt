@@ -96,166 +96,178 @@ Number of Fisher Scoring iterations: 3
 
 [1] 4
 [1] 5
-[1] "analyse_data_mycontrols(data_R, controls$Interest47, controls$Q45)"
-                            Df Sum Sq Mean Sq F value Pr(>F)
-true_labeled                 1   0.28  0.2768   1.107  0.293
-false_labeled                1   0.22  0.2163   0.865  0.353
-time                         1   0.47  0.4722   1.889  0.170
-know                         1   0.02  0.0168   0.067  0.795
-true_labeled:false_labeled   1   0.00  0.0040   0.016  0.900
-Residuals                  818 204.48  0.2500               
+[1] "analyse_data_mycontrols(data_R, controls$Interest47,                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
 
 Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47, 
+    family = binomial(link = "logit"))
 
 Deviance Residuals: 
    Min      1Q  Median      3Q     Max  
--1.310  -1.227   1.063   1.124   1.444  
+-1.157  -1.144  -1.050   1.211   1.310  
 
 Coefficients:
-                              Estimate Std. Error z value Pr(>|z|)
-(Intercept)                  -0.020295   0.167753  -0.121    0.904
-true_labeled1                 0.177771   0.203058   0.875    0.381
-false_labeled1                0.152747   0.198260   0.770    0.441
-time                         -0.002733   0.002561  -1.067    0.286
-know                          0.047392   0.144647   0.328    0.743
-true_labeled1:false_labeled1 -0.043425   0.280897  -0.155    0.877
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 1140.2  on 823  degrees of freedom
-Residual deviance: 1135.6  on 818  degrees of freedom
-AIC: 1147.6
-
-Number of Fisher Scoring iterations: 5
-
-[1] 6
-[1] 7
-[1] "analyse_data_mycontrols(data_L, controls$Interest48, controls$Q46)"
-                            Df Sum Sq Mean Sq F value  Pr(>F)   
-true_labeled                 1   0.00  0.0000   0.000 0.99620   
-false_labeled                1   0.38  0.3823   1.549 0.21363   
-time                         1   1.67  1.6666   6.752 0.00953 **
-know                         1   0.00  0.0030   0.012 0.91240   
-true_labeled:false_labeled   1   0.11  0.1121   0.454 0.50060   
-Residuals                  818 201.89  0.2468                   
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
-
-Deviance Residuals: 
-   Min      1Q  Median      3Q     Max  
--1.217  -1.105  -1.001   1.224   1.952  
-
-Coefficients:
-                              Estimate Std. Error z value Pr(>|z|)  
-(Intercept)                   0.022608   0.166934   0.135   0.8923  
-true_labeled1                 0.107818   0.201448   0.535   0.5925  
-false_labeled1               -0.061774   0.201857  -0.306   0.7596  
-time                         -0.013274   0.005318  -2.496   0.0126 *
-know                         -0.007654   0.147608  -0.052   0.9586  
-true_labeled1:false_labeled1 -0.190488   0.281847  -0.676   0.4991  
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.30748    0.09958  -3.088  0.00202 **
+true_labeled_47                   0.19085    0.14020   1.361  0.17345   
+false_labeled_47                  0.25893    0.14011   1.848  0.06459 . 
+true_labeled_47:false_labeled_47 -0.22038    0.19785  -1.114  0.26531   
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1134.5  on 823  degrees of freedom
-Residual deviance: 1124.3  on 818  degrees of freedom
-AIC: 1136.3
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.3  on 1643  degrees of freedom
+AIC: 2279.3
 
-Number of Fisher Scoring iterations: 4
+Number of Fisher Scoring iterations: 3
 
-[1] 8
-[1] 9
-[1] "analyse_data_mycontrols(strength,  c(controls$Interest47, controls$Interest48), c(controls$Q45, controls$Q46))"
-                             Df Sum Sq Mean Sq F value Pr(>F)  
-true_labeled                  1    0.1  0.1225   0.490  0.484  
-false_labeled                 1    0.0  0.0103   0.041  0.839  
-time                          1    0.7  0.7109   2.843  0.092 .
-know                          1    0.2  0.2021   0.808  0.369  
-true_labeled:false_labeled    1    0.1  0.0907   0.363  0.547  
-Residuals                  1642  410.6  0.2501                 
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "a"
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
 
 Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47, 
+    family = binomial(link = "logit"))
 
 Deviance Residuals: 
    Min      1Q  Median      3Q     Max  
--1.246  -1.160  -1.039   1.191   1.626  
+-1.157  -1.144  -1.050   1.211   1.310  
 
 Coefficients:
-                              Estimate Std. Error z value Pr(>|z|)  
-(Intercept)                  -0.075449   0.115719  -0.652   0.5144  
-true_labeled1                 0.140048   0.142707   0.981   0.3264  
-false_labeled1                0.050250   0.140761   0.357   0.7211  
-time                         -0.004480   0.002359  -1.899   0.0576 .
-know                          0.105238   0.100156   1.051   0.2934  
-true_labeled1:false_labeled1 -0.131570   0.197880  -0.665   0.5061  
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.30748    0.09958  -3.088  0.00202 **
+true_labeled_47                   0.19085    0.14020   1.361  0.17345   
+false_labeled_47                  0.25893    0.14011   1.848  0.06459 . 
+true_labeled_47:false_labeled_47 -0.22038    0.19785  -1.114  0.26531   
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 2283.7  on 1647  degrees of freedom
-Residual deviance: 2277.0  on 1642  degrees of freedom
-AIC: 2289
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.3  on 1643  degrees of freedom
+AIC: 2279.3
 
-Number of Fisher Scoring iterations: 5
+Number of Fisher Scoring iterations: 3
 
-[1] 10
-[1] 11
-[1] "analyse_data_with_controls_basic(data_R, controls)"
-                            Df Sum Sq Mean Sq F value Pr(>F)  
-true_labeled                 1   0.28  0.2768   1.114 0.2915  
-false_labeled                1   0.22  0.2163   0.871 0.3511  
-controls$Q57                 4   2.43  0.6067   2.442 0.0454 *
-controls$Q59                 7   2.90  0.4147   1.669 0.1132  
-controls$Q60                 2   0.06  0.0301   0.121 0.8858  
-controls$Q61                 4   0.64  0.1599   0.644 0.6315  
-controls$Q65                16   3.37  0.2106   0.848 0.6310  
-true_labeled:false_labeled   1   0.03  0.0320   0.129 0.7199  
-Residuals                  787 195.54  0.2485                 
+[1] "a"
+              -0.1025     0.1401  -0.731    0.465    
+is_young                           0.4451     0.1075   4.140 3.48e-05 ***
+true_labeled_48:false_labeled_48   0.1308     0.1982   0.660    0.509    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2264.8  on 1642  degrees of freedom
+AIC: 2274.8
+
+Number of Fisher Scoring iterations: 3
+
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+
 Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47 + 
+    is_young, family = binomial(link = "logit"))
 
 Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.0052  -1.1543   0.7575   1.1396   1.5130  
+   Min      1Q  Median      3Q     Max  
+-1.170  -1.138  -1.044   1.217   1.317  
 
 Coefficients:
-                                 Estimate Std. Error z value Pr(>|z|)  
-(Intercept)                       2.02725    0.92807   2.184   0.0289 *
-true_labeled1                     0.21180    0.21139   1.002   0.3164  
-false_labeled1                    0.19308    0.20644   0.935   0.3496  
-controls$Q5718-34                -1.94810    0.86750  -2.246   0.0247 *
-controls$Q5735-49                -1.98865    0.87060  -2.284   0.0224 *
-controls$Q5750-64                -2.24739    0.87516  -2.568   0.0102 *
-controls$Q5765 and over          -2.04617    0.88870  -2.302   0.0213 *
-controls$Q59Black                 0.56177    0.23833   2.357   0.0184 *
-controls$Q59Asian                -0.16190    0.43574  -0.372   0.7102  
-controls$Q59AIAN                 -0.56103    0.75446  -0.744   0.4571  
-controls$Q59MENA                 -0.46031    0.94086  -0.489   0.6247  
-controls$Q59NHPI                 -2.33613    1.36545  -1.711   0.0871 .
-controls$Q59Other                -0.07709    0.47860  -0.161   0.8720  
-controls$Q59NA                   -0.18095    0.69073  -0.262   0.7933  
-controls$Q60!HL                   0.06411    0.26055   0.246   0.8056  
-controls$Q60NA                   -0.43646    0.56679  -0.770   0.4413  
-controls$Q61R                    -0.12966    0.18373  -0.706   0.4804  
-controls$Q61I                     0.07388    0.19813   0.373   0.7092  
-controls$Q61O                    -0.29602    0.43719  -0.677   0.4983  
-controls$Q61NS                    0.29405    0.38887   0.756   0.4496  
-controls$Q65$10,000 - $19,999    -0.37770    0.39292  -0.961   0.3364  
-controls$Q65$20,000 - $29,999    -0.35949    0.30540  -1.177   0.2391  
-controls$Q65$30,000 - $39,999     0.24295    0.33725   0.720   0.4713  
-controls$Q65$40,000 - $49,999    -0.28820    0.32964  -0.874   0.3820  
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.32206    0.10560  -3.050  0.00229 **
+true_labeled_47                   0.19245    0.14027   1.372  0.17004   
+false_labeled_47                  0.26054    0.14017   1.859  0.06306 . 
+is_young                          0.04448    0.10702   0.416  0.67766   
+true_labeled_47:false_labeled_47 -0.22368    0.19802  -1.130  0.25864   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.1  on 1642  degrees of freedom
+AIC: 2281.1
+
+Number of Fisher Scoring iterations: 3
+
+Call:
+   aov(formula = outcome_47 ~ true_labeled_47 * false_labeled_47)
+
+Terms:
+                true_labeled_47 false_labeled_47 true_labeled_47:false_labeled_47 Residuals
+Sum of Squares           0.1632           0.5614                           0.3060  408.7812
+Deg. of Freedom               1                1                                1      1643
+
+Residual standard error: 0.4988002
+Estimated effects may be unbalanced
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.256  0.133
+true_labeled_47:false_labeled_47    1    0.3  0.3060   1.230  0.268
+Residuals                        1643  408.8  0.2488               
+
+Call:
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47, 
+    family = binomial(link = "logit"))
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.157  -1.144  -1.050   1.211   1.310  
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.30748    0.09958  -3.088  0.00202 **
+true_labeled_47                   0.19085    0.14020   1.361  0.17345   
+false_labeled_47                  0.25893    0.14011   1.848  0.06459 . 
+true_labeled_47:false_labeled_47 -0.22038    0.19785  -1.114  0.26531   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.3  on 1643  degrees of freedom
+AIC: 2279.3
+
+Number of Fisher Scoring iterations: 3
+
+ 0.3820  
 controls$Q65$50,000 - $59,999     0.03609    0.33757   0.107   0.9149  
 controls$Q65$60,000 - $69,999    -0.15322    0.40586  -0.378   0.7058  
 controls$Q65$70,000 - $79,999    -0.33829    0.35567  -0.951   0.3415  
@@ -429,114 +441,151 @@ Number of Fisher Scoring iterations: 12
 [1] 16
 [1] 17
 [1] "analyse_data_with_allcontrols(data_R, controls, controls$Interest47, controls$Q45)"
-                            Df Sum Sq Mean Sq F value Pr(>F)  
-true_labeled                 1   0.28  0.2768   1.113 0.2918  
-false_labeled                1   0.22  0.2163   0.870 0.3513  
-controls$Q57                 4   2.43  0.6067   2.440 0.0456 *
-controls$Q59                 7   2.90  0.4147   1.668 0.1136  
-controls$Q60                 2   0.06  0.0301   0.121 0.8859  
-controls$Q61                 4   0.64  0.1599   0.643 0.6319  
-controls$Q65                16   3.37  0.2106   0.847 0.6319  
-time                         1   0.31  0.3066   1.233 0.2672  
-know                         1   0.02  0.0212   0.085 0.7701  
-true_labeled:false_labeled   1   0.03  0.0271   0.109 0.7412  
-Residuals                  785 195.22  0.2487                 
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "ANOVA Rightist"
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.255  0.133
+is_young                            1    0.0  0.0342   0.137  0.711
+true_labeled_47:false_labeled_47    1    0.3  0.3147   1.264  0.261
+Residuals                        1642  408.7  0.2489               
+[1] "GLM Rightist"
 
 Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47 + 
+    is_young, family = binomial(link = "logit"))
 
 Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--2.0089  -1.1589   0.7448   1.1367   1.4842  
+   Min      1Q  Median      3Q     Max  
+-1.170  -1.138  -1.044   1.217   1.317  
 
 Coefficients:
-                                  Estimate Std. Error z value Pr(>|z|)  
-(Intercept)                       2.019380   0.934640   2.161   0.0307 *
-true_labeled1                     0.213040   0.211716   1.006   0.3143  
-false_labeled1                    0.191562   0.207189   0.925   0.3552  
-controls$Q5718-34                -1.950149   0.871870  -2.237   0.0253 *
-controls$Q5735-49                -1.987601   0.874980  -2.272   0.0231 *
-controls$Q5750-64                -2.222727   0.880767  -2.524   0.0116 *
-controls$Q5765 and over          -2.028277   0.895787  -2.264   0.0236 *
-controls$Q59Black                 0.557328   0.238668   2.335   0.0195 *
-controls$Q59Asian                -0.141245   0.437321  -0.323   0.7467  
-controls$Q59AIAN                 -0.572985   0.753981  -0.760   0.4473  
-controls$Q59MENA                 -0.481396   0.940972  -0.512   0.6089  
-controls$Q59NHPI                 -2.297797   1.355281  -1.695   0.0900 .
-controls$Q59Other                -0.090327   0.479248  -0.188   0.8505  
-controls$Q59NA                   -0.193919   0.690816  -0.281   0.7789  
-controls$Q60!HL                   0.059814   0.261558   0.229   0.8191  
-controls$Q60NA                   -0.437921   0.567637  -0.771   0.4404  
-controls$Q61R                    -0.118241   0.184972  -0.639   0.5227  
-controls$Q61I                     0.088754   0.198650   0.447   0.6550  
-controls$Q61O                    -0.274262   0.438109  -0.626   0.5313  
-controls$Q61NS                    0.313742   0.389751   0.805   0.4208  
-controls$Q65$10,000 - $19,999    -0.374377   0.393255  -0.952   0.3411  
-controls$Q65$20,000 - $29,999    -0.358327   0.305506  -1.173   0.2408  
-controls$Q65$30,000 - $39,999     0.252292   0.337802   0.747   0.4551  
-controls$Q65$40,000 - $49,999    -0.247601   0.331617  -0.747   0.4553  
-controls$Q65$50,000 - $59,999     0.061151   0.339296   0.180   0.8570  
-controls$Q65$60,000 - $69,999    -0.155865   0.405800  -0.384   0.7009  
-controls$Q65$70,000 - $79,999    -0.329248   0.355901  -0.925   0.3549  
-controls$Q65$80,000 - $99,999     0.025876   0.365119   0.071   0.9435  
-controls$Q65$100,000 - $119,999  -0.193245   0.416355  -0.464   0.6426  
-controls$Q65$120,000 - $149,999  -0.221939   0.400671  -0.554   0.5796  
-controls$Q65$150,000 - $199,999  -0.730854   0.407647  -1.793   0.0730 .
-controls$Q65$200,000 - $249,999  -0.263624   0.638958  -0.413   0.6799  
-controls$Q65$250,000 - $349,999   1.264444   1.548745   0.816   0.4143  
-controls$Q65$350,000 - $499,999  12.967468 535.411312   0.024   0.9807  
-controls$Q65$500,000 or more     -0.464078   0.581072  -0.799   0.4245  
-controls$Q65Prefer not to say     0.370993   0.441313   0.841   0.4005  
-time                             -0.002014   0.002297  -0.877   0.3805  
-know                              0.053464   0.158408   0.338   0.7357  
-true_labeled1:false_labeled1     -0.096677   0.292727  -0.330   0.7412  
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.32206    0.10560  -3.050  0.00229 **
+true_labeled_47                   0.19245    0.14027   1.372  0.17004   
+false_labeled_47                  0.26054    0.14017   1.859  0.06306 . 
+is_young                          0.04448    0.10702   0.416  0.67766   
+true_labeled_47:false_labeled_47 -0.22368    0.19802  -1.130  0.25864   
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1140.2  on 823  degrees of freedom
-Residual deviance: 1095.3  on 785  degrees of freedom
-AIC: 1173.3
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.1  on 1642  degrees of freedom
+AIC: 2281.1
 
-Number of Fisher Scoring iterations: 12
+Number of Fisher Scoring iterations: 3
 
-[1] 18
-[1] 19
-[1] "analyse_data_with_allcontrols(data_L, controls, controls$Interest48, controls$Q46)"
-                            Df Sum Sq Mean Sq F value  Pr(>F)   
-true_labeled                 1   0.00  0.0000   0.000 0.99618   
-false_labeled                1   0.38  0.3823   1.561 0.21195   
-controls$Q57                 4   4.35  1.0883   4.442 0.00148 **
-controls$Q59                 7   2.57  0.3669   1.497 0.16468   
-controls$Q60                 2   0.48  0.2395   0.978 0.37664   
-controls$Q61                 4   0.43  0.1078   0.440 0.77986   
-controls$Q65                16   2.55  0.1596   0.652 0.84209   
-time                         1   0.91  0.9142   3.732 0.05375 . 
-know                         1   0.00  0.0002   0.001 0.97885   
-true_labeled:false_labeled   1   0.06  0.0612   0.250 0.61724   
-Residuals                  785 192.31  0.2450                   
+[1] "ANOVA Leftist"
+                                   Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled_48                     1    0.0   0.007   0.030    0.862    
+false_labeled_48                    1    0.0   0.026   0.103    0.748    
+is_young                            1    4.3   4.310  17.381 3.22e-05 ***
+true_labeled_48:false_labeled_48    1    0.1   0.108   0.435    0.510    
+Residuals                        1642  407.2   0.248                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "GLM Leftist"
+
+Call:
+glm(formula = outcome_48 ~ true_labeled_48 * false_labeled_48 + 
+    is_young, family = binomial(link = "logit"))
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.324  -1.102  -1.090   1.223   1.267  
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                       -0.1062     0.1035  -1.026    0.305    
+true_labeled_48                   -0.1013     0.1403  -0.722    0.470    
+false_labeled_48                  -0.1025     0.1401  -0.731    0.465    
+is_young                           0.4451     0.1075   4.140 3.48e-05 ***
+true_labeled_48:false_labeled_48   0.1308     0.1982   0.660    0.509    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2264.8  on 1642  degrees of freedom
+AIC: 2274.8
+
+Number of Fisher Scoring iterations: 3
+
+[1] "ANOVA Rightist"
+                                   Df Sum Sq Mean Sq F value Pr(>F)
+true_labeled_47                     1    0.2  0.1632   0.656  0.418
+false_labeled_47                    1    0.6  0.5614   2.255  0.133
+is_young                            1    0.0  0.0342   0.137  0.711
+true_labeled_47:false_labeled_47    1    0.3  0.3147   1.264  0.261
+Residuals                        1642  408.7  0.2489               
+[1] "GLM Rightist"
+
 Call:
-glm(formula = formula, family = binomial(link = "logit"), data = df)
+glm(formula = outcome_47 ~ true_labeled_47 * false_labeled_47 + 
+    is_young, family = binomial(link = "logit"))
 
 Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--1.7777  -1.0853  -0.8095   1.1656   1.8762  
+   Min      1Q  Median      3Q     Max  
+-1.170  -1.138  -1.044   1.217   1.317  
 
 Coefficients:
-                                  Estimate Std. Error z value Pr(>|z|)  
-(Intercept)                      8.299e-01  7.070e-01   1.174   0.2404  
-true_labeled1                    7.901e-02  2.110e-01   0.375   0.7080  
-false_labeled1                  -3.846e-02  2.122e-01  -0.181   0.8562  
-controls$Q5718-34               -6.394e-01  6.005e-01  -1.065   0.2870  
-controls$Q5735-49               -7.419e-01  6.056e-01  -1.225   0.2206  
-controls$Q5750-64               -1.032e+00  6.119e-01  -1.686   0.0917 .
-controls$Q5765 and over         -1.500e+00  6.364e-01  -2.357   0.0184 *
+                                 Estimate Std. Error z value Pr(>|z|)   
+(Intercept)                      -0.32206    0.10560  -3.050  0.00229 **
+true_labeled_47                   0.19245    0.14027   1.372  0.17004   
+false_labeled_47                  0.26054    0.14017   1.859  0.06306 . 
+is_young                          0.04448    0.10702   0.416  0.67766   
+true_labeled_47:false_labeled_47 -0.22368    0.19802  -1.130  0.25864   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2275.5  on 1646  degrees of freedom
+Residual deviance: 2271.1  on 1642  degrees of freedom
+AIC: 2281.1
+
+Number of Fisher Scoring iterations: 3
+
+[1] "ANOVA Leftist"
+                                   Df Sum Sq Mean Sq F value   Pr(>F)    
+true_labeled_48                     1    0.0   0.007   0.030    0.862    
+false_labeled_48                    1    0.0   0.026   0.103    0.748    
+is_young                            1    4.3   4.310  17.381 3.22e-05 ***
+true_labeled_48:false_labeled_48    1    0.1   0.108   0.435    0.510    
+Residuals                        1642  407.2   0.248                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+[1] "GLM Leftist"
+
+Call:
+glm(formula = outcome_48 ~ true_labeled_48 * false_labeled_48 + 
+    is_young, family = binomial(link = "logit"))
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.324  -1.102  -1.090   1.223   1.267  
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                       -0.1062     0.1035  -1.026    0.305    
+true_labeled_48                   -0.1013     0.1403  -0.722    0.470    
+false_labeled_48                  -0.1025     0.1401  -0.731    0.465    
+is_young                           0.4451     0.1075   4.140 3.48e-05 ***
+true_labeled_48:false_labeled_48   0.1308     0.1982   0.660    0.509    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2282.6  on 1646  degrees of freedom
+Residual deviance: 2264.8  on 1642  degrees of freedom
+AIC: 2274.8
+
+Number of Fisher Scoring iterations: 3
+
+-1.500e+00  6.364e-01  -2.357   0.0184 *
 controls$Q59Black               -7.657e-02  2.312e-01  -0.331   0.7405  
 controls$Q59Asian                2.971e-01  4.538e-01   0.655   0.5127  
 controls$Q59AIAN                 4.673e-01  7.589e-01   0.616   0.5380  
